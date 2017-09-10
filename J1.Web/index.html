@@ -1,0 +1,89 @@
+﻿<!DOCTYPE html>
+<html data-ng-app="AngularAuthApp">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Просто СкЛаД</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+	<!-- Bootstrap Core CSS -->
+	<link href="content/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+	<!-- MetisMenu CSS -->
+	<link href="content/vendor/metisMenu/metisMenu.min.css" rel="stylesheet">
+	<!-- Custom CSS -->
+	<link href="content/dist/css/sb-admin-2.css" rel="stylesheet">
+	<!-- Morris Charts CSS -->
+	<link href="content/vendor/morrisjs/morris.css" rel="stylesheet">
+	<!-- Custom Fonts -->
+	<link href="content/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+	<link href="content/css/loading-bar.css" rel="stylesheet" />
+
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+</head>
+<body>
+	<div id="wrapper">
+		<nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0" data-ng-controller="indexController">
+			<div class="navbar-header">
+				<a class="navbar-brand" href="#">Просто СкЛаД</a>
+			</div>
+			<ul class="nav navbar-top-links navbar-left">
+				<li data-ng-hide="!authentication.isAuth"><a href="#">Главная</a></li>
+				<li data-ng-hide="!authentication.isAuth"><a href="#/orders">My Orders</a></li>
+				<li data-ng-hide="!authentication.isAuth" class="dropdown">
+					<a class="dropdown-toggle" data-toggle="dropdown" href="#">
+						Продукты
+						<span class="caret"></span>
+					</a>
+					<ul class="dropdown-menu">
+						<li><a href="#/products">Список продуктов</a></li>
+						<li><a href="#/products">Создать продукт</a></li>
+						<li><a href="#/products">Создать комплект</a></li>
+					</ul>
+				</li>
+				<li data-ng-hide="!authentication.isAuth"><a href="#/inventory">Инвентаризация</a></li>
+				<li data-ng-hide="!authentication.isAuth"><a href="#/sales">Продажи</a></li>
+				<li data-ng-hide="!authentication.isAuth"><a href="#/clients">Клиенты</a></li>
+			</ul>
+			<ul class="nav navbar-top-links navbar-right">
+				<li data-ng-hide="!authentication.isAuth"><a href="" data-ng-click="logOut()"><span class="glyphicon glyphicon-log-out"></span> Выход</a></li>
+				<li data-ng-hide="authentication.isAuth"> <a href="#/login"><span class="glyphicon glyphicon-log-in"></span> Вход</a></li>
+				<li data-ng-hide="authentication.isAuth"> <a href="#/signup"><span class="glyphicon glyphicon-user"></span> Регистрация</a></li>
+			</ul>
+		</nav>
+
+		<div id="page-wrapper">
+			<div class="container">
+				<div data-ng-view="">
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- 3rd party libraries -->
+	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.min.js"></script>
+	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular-route.min.js"></script>
+	<script src="scripts/angular-local-storage.min.js"></script>
+	<script src="scripts/loading-bar.min.js"></script>
+	<!-- Load app main script -->
+	<script src="app/app.js?v=2"></script>
+	<!-- Load services -->
+	<script src="app/services/authInterceptorService.js?v=2"></script>
+	<script src="app/services/authService.js?v=2"></script>
+	<script src="app/services/ordersService.js?v=2"></script>
+	<script src="app/services/tokensManagerService.js?v=2"></script>
+	<!-- Load controllers -->
+	<script src="app/controllers/indexController.js?v=2"></script>
+	<script src="app/controllers/homeController.js?v=2"></script>
+	<script src="app/controllers/loginController.js?v=2"></script>
+	<script src="app/controllers/signupController.js?v=2"></script>
+	<script src="app/controllers/ordersController.js?v=2"></script>
+	<script src="app/controllers/refreshController.js?v=2"></script>
+	<script src="app/controllers/tokensManagerController.js?v=2"></script>
+	<script src="app/controllers/associateController.js?v=2"></script>
+	<!-- Load custom filters -->
+	<!-- Load custom directives -->
+</body>
+</html>

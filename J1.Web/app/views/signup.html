@@ -1,0 +1,18 @@
+﻿<form class="form-login" role="form">
+	<h2 class="form-login-heading">Сведения о компании</h2>
+	<input type="text" class="form-control" placeholder="Наименование" data-ng-model="registration.TenantName" required>
+	<input type="text" class="form-control" placeholder="Телефон" data-ng-model="registration.TenantPhone" required>
+	<input type="text" class="form-control" placeholder="Адрес" data-ng-model="registration.TenantAddress" required>
+	<input type="text" class="form-control" placeholder="Электронная почта" data-ng-model="registration.TenantEmail" required>
+
+	<h2 class="form-login-heading">Сведения об администраторе</h2>
+	<input type="text" class="form-control" placeholder="ФИО" data-ng-model="registration.UserName" required>
+	<input type="text" class="form-control" placeholder="Телефон" data-ng-model="registration.Phone" required>
+	<input type="text" class="form-control" placeholder="Email/Логин" data-ng-model="registration.Email" required>
+    <input type="password" class="form-control" placeholder="Пароль" data-ng-model="registration.Password" required>
+    <input type="password" class="form-control" placeholder="Подтверждение пароля" data-ng-model="registration.ConfirmPassword" required>
+    <button class="btn btn-lg btn-info btn-block" type="submit" data-ng-click="signUp()">Отправить</button>
+    <div data-ng-hide="message == ''" data-ng-class="(savedSuccessfully) ? 'alert alert-success' : 'alert alert-danger'">
+        {{message}}
+    </div>
+</form>

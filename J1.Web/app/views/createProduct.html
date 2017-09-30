@@ -1,0 +1,156 @@
+﻿<div class="row">
+	<div class="col-lg-12">
+		<h1 class="page-header">Создать продукт</h1>
+	</div>
+</div>
+
+<div data-ng-controller="ProductCreateCtrl" class="row">
+	<div class="col-lg-12">
+		<div class="row">
+			<form role="form">
+				<div class="row">
+					<div class="col-lg-6">
+						<div class="form-group">
+							<label>Код</label>
+							<input class="form-control" ng-model="newProductModel.Code" placeholder="Оставьте пустым для автозаполнения">
+						</div>
+						<div class="form-group">
+							<label>Sku</label>
+							<input class="form-control" ng-model="newProductModel.Sku" placeholder="Оставьте пустым для автозаполнения">
+						</div>
+						<div class="form-group">
+							<label>Наименование</label>
+							<input class="form-control" ng-model="newProductModel.Title">
+						</div>
+						<div class="form-group">
+							<label>Описание</label>
+							<textarea class="form-control" rows="3" ng-model="newProductModel.Description"></textarea>
+						</div>
+						<div class="form-group">
+							<label>Бренд</label>
+							<select class="form-control" ng-options="b.Name for b in brands" ng-model="newProductModel.BrandId" required></select>
+						</div>
+						<div class="form-group">
+							<label>Классификация</label>
+							<select class="form-control" ng-options="c.Name for c in classifications" ng-model="newProductModel.ClassificationId" required></select>
+						</div>
+						<div class="form-group">
+							<label>Поставщик</label>
+							<select class="form-control" ng-options="s.Name for s in suppliers" ng-model="newProductModel.SupplierId" required></select>
+						</div>
+					</div>
+					<div class="col-lg-6">
+						<div class="form-group">
+							<label>Закупочная цена</label>
+							<input type="number" class="form-control" ng-model="newProductModel.Cost">
+						</div>
+						<div class="form-group">
+							<label>Розничная цена</label>
+							<input type="number" class="form-control" ng-model="newProductModel.RetailPrice">
+						</div>
+						<div class="form-group">
+							<label>Цена для продажи</label>
+							<input type="number" class="form-control" ng-model="newProductModel.SalePrice">
+						</div>
+						<div class="form-group">
+							<label>Вес</label>
+							<input type="number" class="form-control" ng-model="newProductModel.Weight">
+						</div>
+						<div class="form-group">
+							<label>Длина</label>
+							<input type="number" class="form-control" ng-model="newProductModel.SizeL">
+						</div>
+						<div class="form-group">
+							<label>Высота</label>
+							<input type="number" class="form-control" ng-model="newProductModel.SizeH">
+						</div>
+						<div class="form-group">
+							<label>Ширина</label>
+							<input type="number" class="form-control" ng-model="newProductModel.SizeW">
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-lg-12">
+						<button type="button" class="btn btn-primary" ng-click="createProduct()">Сохранить</button>
+						<button type="button" class="btn btn-default">Сбросить</button>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+
+<div class="row">
+	<div class="col-lg-12">
+		&nbsp;
+	</div>
+</div>
+
+<script type="text/javascript">
+	var ProductCreateCtrl = [
+		'$scope', '$location', '$timeout', 'productsService', function( $scope, $location, $timeout, productsService ) {
+			$scope.savedSuccessfully = false;
+			$scope.message = "";
+			$scope.newProductModel = {
+				Sku: "",
+				Code: "",
+				Title: "",
+				Description: "",
+				Weight: 0,
+				SizeL: 0,
+				SizeH: 0,
+				SizeW: 0,
+				BrandId: -1,
+				ClassificationId: -1,
+				SupplierId: -1,
+				Cost: 0,
+				RetailPrice: 0,
+				SalePrice: 0
+			};
+
+			$scope.brands = [];
+			$scope.classifications = [];
+			$scope.suppliers = [];
+
+			loadLookups();
+
+			function loadLookups() {
+				productsService.getBrands()
+					.then( function( results ) {
+							$scope.brands = results;
+						},
+						function( error ) {} );
+
+				productsService.getClassifications()
+					.then( function( results ) {
+							$scope.classifications = results;
+						},
+						function( error ) {} );
+
+				productsService.getSuppliers()
+					.then( function( results ) {
+							$scope.suppliers = results;
+						},
+						function( error ) {} );
+			}
+
+			$scope.createProduct = function() {
+				productsService.createProduct( $scope.newProductModel )
+					.then( function( response ) {
+							$scope.savedSuccessfully = true;
+							$scope.message = "Продукт был успешно создан";
+						},
+						function( response ) {
+							var errors = [];
+							for( var key in response.data.modelState )
+								for( var i = 0;
+									i < response.data.modelState[ key ].length;
+									i++
+								) errors.push( response.data.modelState[ key ][ i ] );
+							$scope.message = "Ошибка:" + errors.join( ' ' );
+						} );
+			};
+		}
+	]
+</script>

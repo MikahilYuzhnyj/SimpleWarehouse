@@ -7,7 +7,23 @@ using J1.DAL.Entities;
 
 namespace J1.DAL.Repositories
 {
-	public class GenericRepository< TEntity > where TEntity : class, IEntity
+
+	public interface IGenericRepository< TEntity > where TEntity : class, IEntity
+	{
+		IEnumerable< TEntity > GetAll();
+		IEnumerable< TEntity > GetWithRawSql( string query, params object[] parameters );
+
+		IEnumerable< TEntity > Get(
+			Expression< Func< TEntity, bool > > filter = null,
+			Func< IQueryable< TEntity >, IOrderedQueryable< TEntity > > orderBy = null,
+			string includeProperties = "" );
+
+		TEntity GetById( object id );
+		TEntity Save( TEntity entity );
+		void Delete( object id );
+	}
+
+	internal class GenericRepository< TEntity > where TEntity : class, IEntity
 	{
 		internal readonly J1Context context;
 		internal readonly DbSet< TEntity > dbSet;
@@ -22,7 +38,7 @@ namespace J1.DAL.Repositories
 		{
 			return this.dbSet;
 		}
-
+		
 		public virtual IEnumerable< TEntity > GetWithRawSql( string query, params object[] parameters )
 		{
 			return this.dbSet.SqlQuery( query, parameters ).ToList();

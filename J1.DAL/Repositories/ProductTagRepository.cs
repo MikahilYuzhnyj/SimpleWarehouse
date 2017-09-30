@@ -2,7 +2,11 @@
 
 namespace J1.DAL.Repositories
 {
-	public class ProductTagRepository: GenericRepository< ProductTag >
+	public interface IProductTagRepository: IGenericRepository< ProductTag >
+	{
+	}
+
+	internal class ProductTagRepository: GenericRepository< ProductTag >, IProductTagRepository
 	{
 		public ProductTagRepository( J1Context context )
 			: base( context )

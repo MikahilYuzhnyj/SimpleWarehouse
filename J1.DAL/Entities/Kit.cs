@@ -2,8 +2,7 @@
 
 namespace J1.DAL.Entities
 {
-
-	public class Product: AbstractEntity, IEntity
+	public class Kit: AbstractEntity, IEntity
 	{
 		[ Required ]
 		[ MaxLength( 100 ) ]
@@ -19,7 +18,7 @@ namespace J1.DAL.Entities
 		[ Required ]
 		public string Description{ get; set; }
 
-		public int Weight{ get; set; }
+		public int Weight { get; set; }
 
 		public decimal SizeL{ get; set; }
 
@@ -35,27 +34,11 @@ namespace J1.DAL.Entities
 		/// <summary>
 		/// Розничная цена
 		/// </summary>
-		public decimal RetailPrice{ get; set; }
+		public decimal RetailPrice { get; set; }
 
 		/// <summary>
 		/// Цена для продажи
 		/// </summary>
-		public decimal SalePrice{ get; set; }
-
-		[ Required ]
-		public long BrandId{ get; set; }
-
-		public Brand Brand{ get; set; }
-
-		[ Required ]
-		public long ClassificationId{ get; set; }
-
-		public Classification Classification{ get; set; }
-
-		[ Required ]
-		public long SupplierId{ get; set; }
-
-		public Supplier Supplier{ get; set; }
+		public decimal SalePrice { get; set; }
 	}
-
 }

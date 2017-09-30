@@ -26,6 +26,15 @@ namespace J1.DAL
 		public DbSet< SaleItem > SaleItems{ get; set; }
 		public DbSet< SaleShipment > SaleShipments{ get; set; }
 		public DbSet< Tag > Tags{ get; set; }
+		public DbSet< Brand > Brands{ get; set; }
+		public DbSet< Classification > Classifications{ get; set; }
+		public DbSet< Supplier > Suppliers{ get; set; }
+		public DbSet< Kit > Kits{ get; set; }
+		public DbSet< KitTag > KitTags{ get; set; }
+		public DbSet< KitItem > KitItems{ get; set; }
+		public DbSet< KitAlternateCode > KitAlternateCodes{ get; set; }
+		public DbSet< KitAlternateSku > KitAlternateSkus{ get; set; }
+
 		public DbSet< Tenant > Tenants{ get; set; }
 		public DbSet< User > TenantUsers{ get; set; }
 	}

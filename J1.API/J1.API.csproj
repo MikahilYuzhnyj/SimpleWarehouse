@@ -166,12 +166,14 @@
     <Compile Include="Abstract\AbstractController.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountsController.cs" />
+    <Compile Include="Controllers\ProductsController.cs" />
     <Compile Include="Controllers\OrdersController.cs" />
     <Compile Include="Controllers\RolesController.cs" />
     <Compile Include="Exceptions\AuthenticateException.cs" />
     <Compile Include="Factory\ModelFactory.cs" />
     <Compile Include="Models\AccountBindingModels.cs" />
     <Compile Include="Models\ExternalLoginModels.cs" />
+    <Compile Include="Models\Products\ProductModel.cs" />
     <Compile Include="Models\Roles\CreateRoleBindingModel.cs" />
     <Compile Include="Models\Roles\RoleReturnModel.cs" />
     <Compile Include="Models\Roles\UserInRoleModel.cs" />
@@ -184,6 +186,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Providers\CustomJwtFormat.cs" />
     <Compile Include="Providers\CustomOAuthProvider.cs" />
+    <Compile Include="RequestsDB\ProductRequests.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>

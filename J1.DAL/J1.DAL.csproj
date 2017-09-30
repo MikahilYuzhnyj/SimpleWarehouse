@@ -87,6 +87,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Entities\AbstractEntity.cs" />
+    <Compile Include="Entities\Kit.cs" />
+    <Compile Include="Entities\KitItem.cs" />
+    <Compile Include="Entities\KitTag.cs" />
+    <Compile Include="Entities\KitAlternateCode.cs" />
+    <Compile Include="Entities\KitAlternateSku.cs" />
+    <Compile Include="Entities\Supplier.cs" />
+    <Compile Include="Entities\Classification.cs" />
+    <Compile Include="Entities\Brand.cs" />
     <Compile Include="Entities\Buyer.cs" />
     <Compile Include="Entities\SaleShipment.cs" />
     <Compile Include="Entities\SaleItem.cs" />
@@ -126,9 +134,21 @@
     <Compile Include="Migrations\201709100545298_09_10_2017_00.Designer.cs">
       <DependentUpon>201709100545298_09_10_2017_00.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201709301202247_09_30_2017_00.cs" />
+    <Compile Include="Migrations\201709301202247_09_30_2017_00.Designer.cs">
+      <DependentUpon>201709301202247_09_30_2017_00.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\AuthRepository.cs" />
+    <Compile Include="Repositories\KitRepository.cs" />
+    <Compile Include="Repositories\KitItemRepository.cs" />
+    <Compile Include="Repositories\KitTagRepository.cs" />
+    <Compile Include="Repositories\KitAlternateCodeRepository.cs" />
+    <Compile Include="Repositories\KitAlternateSkuRepository.cs" />
+    <Compile Include="Repositories\SupplierRepository.cs" />
+    <Compile Include="Repositories\ClassificationRepository.cs" />
+    <Compile Include="Repositories\BrandRepository.cs" />
     <Compile Include="Repositories\ProductAlternateSkuRepository.cs" />
     <Compile Include="Repositories\ProductAlternateCodeRepository.cs" />
     <Compile Include="Repositories\UserRepository.cs" />
@@ -163,6 +183,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201709100545298_09_10_2017_00.resx">
       <DependentUpon>201709100545298_09_10_2017_00.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201709301202247_09_30_2017_00.resx">
+      <DependentUpon>201709301202247_09_30_2017_00.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

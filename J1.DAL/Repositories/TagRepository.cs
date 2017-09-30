@@ -2,7 +2,11 @@
 
 namespace J1.DAL.Repositories
 {
-	public class TagRepository: GenericRepository< Tag >
+	public interface ITagRepository: IGenericRepository< Tag >
+	{
+	}
+
+	internal class TagRepository: GenericRepository< Tag >, ITagRepository
 	{
 		public TagRepository( J1Context context )
 			: base( context )

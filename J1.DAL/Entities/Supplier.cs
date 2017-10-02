@@ -2,7 +2,7 @@
 
 namespace J1.DAL.Entities
 {
-	public class Supplier: AbstractEntity, IEntity
+	public class Supplier: AbstractTenantEntity, ITenantEntity
 	{
 		[ Required ]
 		public string Name{ get; set; }

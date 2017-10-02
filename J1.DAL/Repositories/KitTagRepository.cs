@@ -2,11 +2,11 @@
 
 namespace J1.DAL.Repositories
 {
-	public interface IKitTagRepository: IGenericRepository< KitTag >
+	public interface IKitTagRepository: ITenantGenericRepository< KitTag >
 	{
 	}
 
-	internal class KitTagRepository: GenericRepository< KitTag >, IKitTagRepository
+	internal class KitTagRepository: TenantGenericRepository< KitTag >, IKitTagRepository
 	{
 		public KitTagRepository( J1Context context )
 			: base( context )

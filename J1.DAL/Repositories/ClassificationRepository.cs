@@ -2,11 +2,11 @@
 
 namespace J1.DAL.Repositories
 {
-	public interface IClassificationRepository: IGenericRepository< Classification >
+	public interface IClassificationRepository: ITenantGenericRepository< Classification >
 	{
 	}
 
-	internal class ClassificationRepository: GenericRepository< Classification >, IClassificationRepository
+	internal class ClassificationRepository: TenantGenericRepository< Classification >, IClassificationRepository
 	{
 		public ClassificationRepository( J1Context context )
 			: base( context )

@@ -2,7 +2,7 @@
 
 namespace J1.DAL.Entities
 {
-	public class Brand: AbstractEntity, IEntity
+	public class Brand: AbstractTenantEntity, ITenantEntity
 	{
 		[ Required ]
 		public string Name{ get; set; }

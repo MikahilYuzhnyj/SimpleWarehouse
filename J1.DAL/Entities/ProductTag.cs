@@ -2,7 +2,7 @@
 
 namespace J1.DAL.Entities
 {
-	public class ProductTag: AbstractEntity, IEntity
+	public class ProductTag: AbstractTenantEntity, ITenantEntity
 	{
 		[ Required ]
 		public long ProductId{ get; set; }

@@ -23,6 +23,7 @@ namespace J1.API.Controllers
 			return this.Ok( ProductRequests.GetProductsForCatalog(
 				this._unitOfWork.ProductRepository,
 				this._unitOfWork.ProductTagRepository,
+				this.TenantId,
 				pageNumber,
 				pageSize
 				) );

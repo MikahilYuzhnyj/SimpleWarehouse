@@ -5,12 +5,12 @@ using J1.DAL.Entities;
 namespace J1.DAL.Repositories
 {
 
-	public interface IKitRepository: IGenericRepository< Kit >
+	public interface IKitRepository: ITenantGenericRepository< Kit >
 	{
 		IEnumerable< Kit > GetAll( int pageNumber, int pageSize );
 	}
 
-	internal class KitRepository: GenericRepository< Kit >, IKitRepository
+	internal class KitRepository: TenantGenericRepository< Kit >, IKitRepository
 	{
 		public KitRepository( J1Context context )
 			: base( context )

@@ -2,11 +2,11 @@
 
 namespace J1.DAL.Repositories
 {
-	public interface IKitAlternateCodeRepository: IGenericRepository< KitAlternateCode >
+	public interface IKitAlternateCodeRepository: ITenantGenericRepository< KitAlternateCode >
 	{
 	}
 
-	internal class KitAlternateCodeRepository: GenericRepository< KitAlternateCode >, IKitAlternateCodeRepository
+	internal class KitAlternateCodeRepository: TenantGenericRepository< KitAlternateCode >, IKitAlternateCodeRepository
 	{
 		public KitAlternateCodeRepository( J1Context context )
 			: base( context )

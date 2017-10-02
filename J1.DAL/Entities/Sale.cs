@@ -2,7 +2,7 @@
 
 namespace J1.DAL.Entities
 {
-	public class Sale: AbstractEntity, IEntity
+	public class Sale: AbstractTenantEntity, ITenantEntity
 	{
 		[ Required ]
 		[ MaxLength( 100 ) ]

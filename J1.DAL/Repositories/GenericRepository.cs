@@ -11,13 +11,6 @@ namespace J1.DAL.Repositories
 	public interface IGenericRepository< TEntity > where TEntity : class, IEntity
 	{
 		IEnumerable< TEntity > GetAll();
-		IEnumerable< TEntity > GetWithRawSql( string query, params object[] parameters );
-
-		IEnumerable< TEntity > Get(
-			Expression< Func< TEntity, bool > > filter = null,
-			Func< IQueryable< TEntity >, IOrderedQueryable< TEntity > > orderBy = null,
-			string includeProperties = "" );
-
 		TEntity GetById( object id );
 		TEntity Save( TEntity entity );
 		void Delete( object id );
@@ -39,36 +32,6 @@ namespace J1.DAL.Repositories
 			return this.dbSet;
 		}
 		
-		public virtual IEnumerable< TEntity > GetWithRawSql( string query, params object[] parameters )
-		{
-			return this.dbSet.SqlQuery( query, parameters ).ToList();
-		}
-
-		public virtual IEnumerable< TEntity > Get(
-			Expression< Func< TEntity, bool > > filter = null,
-			Func< IQueryable< TEntity >, IOrderedQueryable< TEntity > > orderBy = null,
-			string includeProperties = "" )
-		{
-			IQueryable< TEntity > query = this.dbSet;
-
-			if( filter != null )
-			{
-				query = query.Where( filter );
-			}
-
-			foreach( var includeProperty in includeProperties.Split
-				( new[] { ',' }, StringSplitOptions.RemoveEmptyEntries ) )
-			{
-				query = query.Include( includeProperty );
-			}
-
-			if( orderBy != null )
-			{
-				return orderBy( query ).ToList();
-			}
-			return query.ToList();
-		}
-
 		public virtual TEntity GetById( object id )
 		{
 			return this.dbSet.Find( id );

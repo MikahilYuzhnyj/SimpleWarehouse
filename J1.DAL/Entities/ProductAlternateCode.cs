@@ -2,7 +2,7 @@
 
 namespace J1.DAL.Entities
 {
-	public class ProductAlternateCode: AbstractEntity, IEntity
+	public class ProductAlternateCode: AbstractTenantEntity, ITenantEntity
 	{
 		[ Required ]
 		public long ProductId{ get; set; }

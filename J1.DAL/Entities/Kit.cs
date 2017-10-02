@@ -2,7 +2,7 @@
 
 namespace J1.DAL.Entities
 {
-	public class Kit: AbstractEntity, IEntity
+	public class Kit: AbstractTenantEntity, ITenantEntity
 	{
 		[ Required ]
 		[ MaxLength( 100 ) ]

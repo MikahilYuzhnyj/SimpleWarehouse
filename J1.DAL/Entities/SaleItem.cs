@@ -2,7 +2,7 @@
 
 namespace J1.DAL.Entities
 {
-	public class SaleItem: AbstractEntity, IEntity
+	public class SaleItem: AbstractTenantEntity, ITenantEntity
 	{
 		[ Required ]
 		public long SaleId{ get; set; }

@@ -2,11 +2,11 @@
 
 namespace J1.DAL.Repositories
 {
-	public interface ISaleItemRepository: IGenericRepository< SaleItem >
+	public interface ISaleItemRepository: ITenantGenericRepository< SaleItem >
 	{
 	}
 
-	internal class SaleItemRepository: GenericRepository< SaleItem >, ISaleItemRepository
+	internal class SaleItemRepository: TenantGenericRepository< SaleItem >, ISaleItemRepository
 	{
 		public SaleItemRepository( J1Context context )
 			: base( context )

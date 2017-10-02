@@ -2,7 +2,7 @@
 
 namespace J1.DAL.Entities
 {
-	public class Buyer: AbstractEntity, IEntity
+	public class Buyer: AbstractTenantEntity, ITenantEntity
 	{
 		[ Required ]
 		public string Name{ get; set; }

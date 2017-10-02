@@ -141,6 +141,7 @@
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\AuthRepository.cs" />
+    <Compile Include="Repositories\TenantGenericRepository.cs" />
     <Compile Include="Repositories\KitRepository.cs" />
     <Compile Include="Repositories\KitItemRepository.cs" />
     <Compile Include="Repositories\KitTagRepository.cs" />

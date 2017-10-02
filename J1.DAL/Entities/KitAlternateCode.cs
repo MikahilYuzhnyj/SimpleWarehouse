@@ -2,7 +2,7 @@
 
 namespace J1.DAL.Entities
 {
-	public class KitAlternateCode: AbstractEntity, IEntity
+	public class KitAlternateCode: AbstractTenantEntity, ITenantEntity
 	{
 		[ Required ]
 		public long KitId{ get; set; }

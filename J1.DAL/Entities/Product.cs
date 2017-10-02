@@ -3,7 +3,7 @@
 namespace J1.DAL.Entities
 {
 
-	public class Product: AbstractEntity, IEntity
+	public class Product: AbstractTenantEntity, ITenantEntity
 	{
 		[ Required ]
 		[ MaxLength( 100 ) ]

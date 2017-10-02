@@ -2,7 +2,7 @@
 
 namespace J1.DAL.Entities
 {
-	public class KitAlternateSku: AbstractEntity, IEntity
+	public class KitAlternateSku: AbstractTenantEntity, ITenantEntity
 	{
 		[ Required ]
 		public long KitId{ get; set; }
